@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 return [
 
     'default' => env('DB_CONNECTION'),
+    'backup_lifetime' =>env('DB_BACKUP_LIFETIME',  14*24*60*60), // 2 weeks
 
     'connections' => [
         'sqlite' => [
