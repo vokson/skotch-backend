@@ -15,12 +15,11 @@ https://laravel.com/docs/8.x/installation
 Pdftk library to be installed, if pdf merge utility is required<br>
 https://www.pdflabs.com/tools/pdftk-server/
 
-Clone repository from GitHUB and install dependencies.
+Clone repository from GitHUB.
 
 ```sh
 $ git clone https://github.com/vokson/vlg-dev-8.backend.git
 $ cd vlg-dev-8.backend
-$ composer install
 ```
 
 Add .env file with private settings
@@ -45,9 +44,11 @@ MAIL_ENCRYPTION=
 MAIL_FROM_ADDRESS=
 MAIL_FROM_NAME=
 ```
-Set  application key.
-```ssh
-php artisan key:generate
+Install dependencies and set application key. If APP_DEBUG=production, allow changes.
+
+```sh
+$ composer install
+$ php artisan key:generate
 ```
 **If the application key is not set, your user sessions and other encrypted data will not be secure!**
 
@@ -55,17 +56,23 @@ After installing Laravel, you may need to configure some permissions. Directorie
 
 Create folders required for application
 ```ssh
-php artisan project:init_folders
+$ php artisan project:init_folders
 ```
 Create empty **database.sqlite** in **./database** directory. Execute migrations and fill database with initial data.
 ```ssh
-php artisan migrate
-php artisan db:seed
+$ php artisan migrate
+$ php artisan db:seed
+```
+Cache settings
+```ssh
+$ php artisan config:cache
 ```
 
 Now you may login via **Skotch-Frontend** using defaults
 - username = admin@mail.com
 - password = 1234
+
+Then go to Admin and tune app. Start from Admin/Roles.
 
 ### License
 MIT
