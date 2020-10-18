@@ -17,7 +17,7 @@ class ZipArchiveController extends Controller
 
         $archiveName =  uniqid() . '.zip';
 
-        $zipPath = config('filesystems.archiveStoragePath') . DIRECTORY_SEPARATOR . $archiveName;
+        $zipPath = config('filesystems.zip_storage_path') . DIRECTORY_SEPARATOR . $archiveName;
 
         set_time_limit(Settings::take('ARCHIVE_CREATION_TIME') );
 
@@ -58,7 +58,7 @@ class ZipArchiveController extends Controller
 
     public static function cleanOldArchives()
     {
-        foreach (glob(config('filesystems.archiveStoragePath'). DIRECTORY_SEPARATOR  . '*') as $fileName) {
+        foreach (glob(config('filesystems.zip_storage_path'). DIRECTORY_SEPARATOR  . '*') as $fileName) {
             if ( (microtime(true) - filectime($fileName) > Settings::take('ARCHIVE_STORAGE_TIME') )) {
                 unlink($fileName);
             }

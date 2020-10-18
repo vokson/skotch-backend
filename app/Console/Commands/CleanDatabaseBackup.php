@@ -18,7 +18,7 @@ class CleanDatabaseBackup extends Command
 
     public function handle()
     {
-        $directory = config('filesystems.databaseBackupPath');
+        $directory = config('filesystems.database_backup_path');
         $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
         foreach ($scanned_directory as $filename) {

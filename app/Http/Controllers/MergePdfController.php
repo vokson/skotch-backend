@@ -125,7 +125,8 @@ class MergePdfController extends Controller
         try {
 
             $path = Storage::putFile(
-                'log_file_storage' . DIRECTORY_SEPARATOR . 'PDF_MERGE_FILES',
+                config('filesystems.pdf_merge_files_path'),
+//                'log_file_storage' . DIRECTORY_SEPARATOR . 'PDF_MERGE_FILES',
                 $request->file('pdf_file')
             );
 
@@ -173,7 +174,7 @@ class MergePdfController extends Controller
     {
         $this->cleanOldMergedFiles();
 
-        $pathOfMergedFile = config('filesystems.mergedPdfPath') . DIRECTORY_SEPARATOR . 'MERGED_' . uniqid() . '.pdf';
+        $pathOfMergedFile = config('filesystems.pdf_merge_files_path') . DIRECTORY_SEPARATOR . 'MERGED_' . uniqid() . '.pdf';
 
         $files = DB::table('pdf_merge_files')
             ->select(['id', 'drop_id', 'owner', 'server_name', 'original_name'])
@@ -233,7 +234,7 @@ class MergePdfController extends Controller
         foreach (glob(
                      storage_path('app') .
                      DIRECTORY_SEPARATOR .
-                     config('filesystems.mergedPdfPath') .
+                     config('filesystems.pdf_merge_files_path') .
                      DIRECTORY_SEPARATOR .
                      'MERGED_*'
                  ) as $fileName) {

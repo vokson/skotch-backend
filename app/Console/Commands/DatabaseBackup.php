@@ -24,7 +24,7 @@ class DatabaseBackup extends Command
         $filename = str_replace(' ', '_', $filename);
         $filename = str_replace(':', '_', $filename);
 
-        $path = config('filesystems.databaseBackupPath') . DIRECTORY_SEPARATOR . $filename;
+        $path = config('filesystems.database_backup_path') . DIRECTORY_SEPARATOR . $filename;
 
         try {
             $this->line('Copying ' . database_path('database.sqlite') . ' to ' . $path);
