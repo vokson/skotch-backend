@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Setting;
-use App\Status;
+use App\Models\Setting;
+use App\Models\Status;
 
 class SettingSeeder extends Seeder
 {

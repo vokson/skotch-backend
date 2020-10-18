@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Action;
+use App\Models\Action;
 
 class ActionSeeder extends Seeder
 {
