@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\DatabaseBackup::class,
+        Commands\CleanDatabaseBackup::class,
+        Commands\GetCountOfMistakesByProbability::class
     ];
 
     /**
@@ -24,7 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('database:backup')->hourly();
+        $schedule->command('database:backup_clean')->daily();
+        $schedule->command('checker:probability')->daily();
     }
 
     /**
