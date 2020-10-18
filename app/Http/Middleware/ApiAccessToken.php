@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApiAuthController;
 
 class ApiAccessToken
 {
@@ -14,8 +14,12 @@ class ApiAccessToken
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        return $next($request);
+        $response = ApiAuthController::isTokenValid($request);
+        $json = json_decode($response, true);
+
+        return ($json['success'] == 1) ? $next($request) : $response;
+
     }
 }
