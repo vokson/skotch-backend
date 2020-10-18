@@ -4,7 +4,7 @@ namespace App\Mail;
 
 use App\Models\ApiUser;
 use App\Http\Controllers\SettingsController as Settings;
-use App\Nodels\SenderFolder;
+use App\Models\SenderFolder;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;

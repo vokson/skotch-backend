@@ -117,7 +117,8 @@ class DocsController extends Controller
 
         DB::connection()->enableQueryLog();
 
-        $query->orderBy('code_1', 'revision_priority');
+        $query->orderBy('code_1', 'asc');
+        $query->orderBy('revision_priority', 'asc');
 
         $docs = $query->get();
 
@@ -140,7 +141,7 @@ class DocsController extends Controller
 
             $files = UploadedFile::where('log', $doc->log_id)
                 ->where('original_name', 'like', '%' . $cleanedCode_1 . '%')
-                ->orderBy('original_name')
+                ->orderBy('original_name', 'asc')
                 ->get();
 
             MyLog::debug('Count of files for log_id('.$doc->log_id.') and original_name('.$cleanedCode_1.') = ' . count($files));

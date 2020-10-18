@@ -164,7 +164,7 @@ class UserController extends Controller
             ->whereNotNull('role')
             ->groupBy('role')
             ->select(['role'])
-            ->orderBy('role')
+            ->orderBy('role', 'asc')
             ->get();
 
         $func = function ($item) {

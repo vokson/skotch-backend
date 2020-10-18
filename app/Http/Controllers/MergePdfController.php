@@ -19,8 +19,8 @@ class MergePdfController extends Controller
         $items = DB::table('pdf_merge_files')
             ->select(['id', 'drop_id as group', 'owner', 'original_name as filename', 'created_at as date', 'is_name'])
             ->where('owner', ApiAuthController::id($request))
-            ->orderBy('group')
-            ->orderBy('filename')
+            ->orderBy('group', 'asc')
+            ->orderBy('filename', 'asc')
             ->get();
 
         return Feedback::getFeedback(0, [
@@ -178,8 +178,8 @@ class MergePdfController extends Controller
         $files = DB::table('pdf_merge_files')
             ->select(['id', 'drop_id', 'owner', 'server_name', 'original_name'])
             ->where('owner', ApiAuthController::id($request))
-            ->orderBy('drop_id')
-            ->orderBy('original_name')
+            ->orderBy('drop_id', 'asc')
+            ->orderBy('original_name', 'asc')
             ->get();
 
         $command_string = 'cd ' . storage_path("app") . '; pdftk ';

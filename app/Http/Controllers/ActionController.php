@@ -65,7 +65,7 @@ class ActionController extends Controller
             ->whereNull('role')
             ->groupBy('name')
             ->select(['name'])
-            ->orderBy('name')
+            ->orderBy('name', 'asc')
             ->get();
 
         $func = function ($item) {

@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Check;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Log as MyLog;
 
 class SenderFileController extends Controller
 {
     public function upload(Request $request)
     {
+
+        MyLog::debug('SenderFileController@upload');
 
         $folder_id = null;
         if ($request->has('folder_id')) {
