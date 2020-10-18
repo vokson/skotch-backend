@@ -67,6 +67,8 @@ Cache settings
 ```ssh
 $ php artisan config:cache
 ```
+Configure Cron Schedules in order to give application possibility to execute cron tasks.<br>
+https://laravel.com/docs/8.x/homestead#configuring-cron-schedules
 
 Now you may login via **Skotch-Frontend** using defaults
 - username = admin@mail.com
