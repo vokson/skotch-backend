@@ -9,7 +9,11 @@ Skotch is control system for design office work.
 
 ### Installation
 
-Skotch is based on Laravel 8 PHP Framework. Please check Laravel requirements https://laravel.com/docs/8.x/installation
+Skotch is based on Laravel 8 PHP Framework. Please check Laravel requirements<br>
+https://laravel.com/docs/8.x/installation
+
+Pdftk library to be installed, if pdf merge utility is required<br>
+https://www.pdflabs.com/tools/pdftk-server/
 
 Clone repository from GitHUB and install dependencies.
 
