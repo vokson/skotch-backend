@@ -42,6 +42,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            'route.permission'
         ],
     ];
 
@@ -62,5 +63,17 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        'auth.api.token' => \App\Http\Middleware\ApiAccessToken::class,
+        'auth.log.edit' => \App\Http\Middleware\ApiCheckLogEditPermission::class,
+        'reg_exp.log.edit' => \App\Http\Middleware\ApiCheckLogEditRegExpPermission::class,
+        'auth.log.file.edit' => \App\Http\Middleware\ApiCheckLogFileEditPermission::class,
+        'reg_exp.log.file.edit' => \App\Http\Middleware\ApiCheckLogFileEditRegExpPermission::class,
+        'auth.log.new.message' => \App\Http\Middleware\ApiCheckLogMarkNewMessagePermission::class,
+        'auth.checker.file.delete' => \App\Http\Middleware\ApiCheckCheckerFileDeletePermission::class,
+        'log.transmittal.record.create' => \App\Http\Middleware\ApiCreateFirstRecordForTransmittal::class,
+        'log.transmittal.record.delete' => \App\Http\Middleware\ApiDeleteFirstRecordForTransmittal::class,
+
+        'route.permission' => \App\Http\Middleware\CheckPermissionForRoute::class,
     ];
 }
