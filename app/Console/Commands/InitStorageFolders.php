@@ -56,7 +56,7 @@ class InitStorageFolders extends Command
 
                 $this->info('Creating ' . $path . '  ...');
                 try {
-                    mkdir($path);
+                    mkdir($path, 0777, true);
                     $this->info('Success!');
 
                 } catch (Exception $e) {
