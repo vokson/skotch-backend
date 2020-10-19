@@ -18,31 +18,31 @@ https://www.pdflabs.com/tools/pdftk-server/
 Clone repository from GitHUB.
 
 ```sh
-$ git clone https://github.com/vokson/vlg-dev-8.backend.git
-$ cd vlg-dev-8.backend
+$ https://github.com/vokson/skotch-backend.git
+$ cd skotch-backend
 ```
 
 Add .env file with private settings
 ```
-APP_NAME=
-APP_ENV=
+APP_NAME=NAME_OF_YOUR_PROJECT
+APP_ENV=production or debug
 APP_KEY=
-APP_DEBUG=
+APP_DEBUG=true or false
 APP_URL=
-LOG_CHANNEL=
-LOG_LEVEL=
-DB_CONNECTION=
-DB_BACKUP_LIFETIME=
-FILESYSTEM_DRIVER=
-QUEUE_CONNECTION=
-MAIL_MAILER=
-MAIL_HOST=
-MAIL_PORT=
+LOG_CHANNEL=stack
+LOG_LEVEL=debug or error
+DB_CONNECTION=sqlite
+DB_BACKUP_LIFETIME=1209600
+FILESYSTEM_DRIVER=local
+QUEUE_CONNECTION=database
+MAIL_MAILER=stmp
+MAIL_HOST=ip adress of your mail server
+MAIL_PORT=port of your mail server, usually 587
 MAIL_USERNAME=
 MAIL_PASSWORD=
-MAIL_ENCRYPTION=
+MAIL_ENCRYPTION=false
 MAIL_FROM_ADDRESS=
-MAIL_FROM_NAME=
+MAIL_FROM_NAME="${APP_NAME}"
 ```
 Install dependencies and set application key. If APP_DEBUG=production, allow changes.
 
