@@ -44,7 +44,7 @@ MAIL_ENCRYPTION=false
 MAIL_FROM_ADDRESS=
 MAIL_FROM_NAME="${APP_NAME}"
 ```
-Install dependencies and set application key. If APP_DEBUG=production, allow changes.
+Install dependencies and set application key APP_KEY. If APP_ENV=production, allow changes.
 
 ```sh
 $ composer install
