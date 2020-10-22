@@ -55,7 +55,7 @@ class DocsController extends Controller
 
         $maxRevs = DB::table('docs')
             ->select(DB::raw('MAX(revision_priority),  id'))
-            ->groupBy('code_1');
+            ->groupBy('code_1', 'code_2');
 
         $query = DB::table('docs');
 
